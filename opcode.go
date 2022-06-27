@@ -1,6 +1,9 @@
 package opcode
 
+
 import "fmt"
+
+type Opcode uint16
 
 const (
 	OpHeartbeat Opcode = iota
@@ -19,18 +22,15 @@ const (
 )
 
 const (
-	OpAccount Opcode = iota + 200
-	OpCPU
+	OpCPU Opcode = iota + 200
 	OpDiskIO
 	OpFileSystem
 	OpListen
 	OpMemory
 	OpNetwork
-	OpProcess
 	OpService
 	OpSocket
 	OpSysInfo
-	OpProcessSnapshot
 )
 
 const (
@@ -40,7 +40,8 @@ const (
 	OpProcessFull
 )
 
-var opcodeNames = map[Opcode]string{
+// opcodes Opcode 对应名称
+var opcodes = map[Opcode]string{
 	OpHeartbeat: "minion 发出的心跳包",
 	OpSubstance: "minion 配置更新",
 	OpThird:     "三方文件更新",
@@ -50,30 +51,29 @@ var opcodeNames = map[Opcode]string{
 	OpUpgrade:   "节点客户端升级",
 
 	OpEvent: "上报事件",
-	OpTask:  "上报 vela task 内部服务运行信息",
-	OpSpdx:  "上报 software spdx info",
+	OpTask:  "上报 rock-go 内部服务运行信息",
+	OpSpdx:  "上报节点 SPDX 清单",
 
-	OpAccount:         "上报系统账户信息",
-	OpCPU:             "上报 CPU 信息",
-	OpDiskIO:          "上报磁盘 I/O",
-	OpFileSystem:      "上报文件系统",
-	OpListen:          "上报端口监听",
-	OpMemory:          "上报内存信息",
-	OpNetwork:         "上报网络信息",
-	OpProcess:         "上报进程信息",
-	OpService:         "上报系统服务信息",
-	OpSocket:          "上报 socket 连接信息",
-	OpSysInfo:         "上报节点基本信息",
-	OpProcessSnapshot: "上报进程信息快照",
+	OpCPU:        "上报 CPU 信息",
+	OpDiskIO:     "上报磁盘 I/O",
+	OpFileSystem: "上报文件系统",
+	OpListen:     "上报端口监听",
+	OpMemory:     "上报内存信息",
+	OpNetwork:    "上报网络信息",
+	OpService:    "上报系统服务信息",
+	OpSocket:     "上报 socket 连接信息",
+	OpSysInfo:    "上报节点基本信息",
+
+	OpAccountDiff: "上报账户差异信息",
+	OpAccountFull: "上报账户全量信息",
+	OpProcessDiff: "上报进程差异信息",
+	OpProcessFull: "上报进程全量信息",
 }
 
-// Opcode minion 节点操作码
-type Opcode uint16
-
 // String implement fmt.Stringer
-func (o Opcode) String() string {
-	if s, ok := opcodeNames[o]; ok {
-		return s
+func (op Opcode) String() string {
+	if str, exist := opcodes[op]; exist {
+		return str
 	}
-	return fmt.Sprintf("<unnamed minion opcode: %d>", o)
+	return fmt.Sprintf("<unnamed minion opcode: %d>", op)
 }
