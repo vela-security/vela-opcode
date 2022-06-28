@@ -40,6 +40,8 @@ const (
 	OpProcessFull
 	OpGroupDiff
 	OpGroupFull
+	OpListenDiff
+	OpListenFull
 )
 
 // opcodes Opcode 对应名称
@@ -72,6 +74,8 @@ var opcodes = map[Opcode]string{
 	OpProcessFull: "上报进程全量信息",
 	OpGroupDiff:   "上报用户组差异信息",
 	OpGroupFull:   "上报用户组全量信息",
+	OpListenDiff:  "上报端口监听差异信息",
+	OpListenFull:  "上报端口监听全量信息",
 }
 
 // String implement fmt.Stringer
