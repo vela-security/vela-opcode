@@ -25,7 +25,7 @@ const (
 	OpCPU Opcode = iota + 200
 	OpDiskIO
 	OpFileSystem
-	OpListen
+	_
 	OpMemory
 	OpNetwork
 	OpService
