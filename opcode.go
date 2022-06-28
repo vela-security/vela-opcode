@@ -61,7 +61,6 @@ var opcodes = map[Opcode]string{
 	OpCPU:        "上报 CPU 信息",
 	OpDiskIO:     "上报磁盘 I/O",
 	OpFileSystem: "上报文件系统",
-	OpListen:     "上报端口监听",
 	OpMemory:     "上报内存信息",
 	OpNetwork:    "上报网络信息",
 	OpService:    "上报系统服务信息",
