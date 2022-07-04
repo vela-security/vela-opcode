@@ -19,6 +19,7 @@ const (
 	OpEvent Opcode = iota + 100
 	OpTask
 	OpSpdx
+	OpRisk
 )
 
 const (
@@ -57,6 +58,7 @@ var opcodes = map[Opcode]string{
 	OpEvent: "上报事件",
 	OpTask:  "上报 rock-go 内部服务运行信息",
 	OpSpdx:  "上报节点 SPDX 清单",
+	OpRisk:  "上报节点风险数据",
 
 	OpCPU:        "上报 CPU 信息",
 	OpDiskIO:     "上报磁盘 I/O",
