@@ -1,6 +1,5 @@
 package opcode
 
-
 import "fmt"
 
 type Opcode uint16
