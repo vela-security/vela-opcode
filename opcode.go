@@ -19,6 +19,7 @@ const (
 	OpTask
 	OpSpdx
 	OpRisk
+	OpSbom
 )
 
 const (
@@ -58,6 +59,7 @@ var opcodes = map[Opcode]string{
 	OpTask:  "上报 rock-go 内部服务运行信息",
 	OpSpdx:  "上报节点 SPDX 清单",
 	OpRisk:  "上报节点风险数据",
+	OpSbom:  "上报自定义 sbom 信息",
 
 	OpCPU:        "上报 CPU 信息",
 	OpDiskIO:     "上报磁盘 I/O",
