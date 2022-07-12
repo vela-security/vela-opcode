@@ -20,6 +20,7 @@ const (
 	OpSpdx
 	OpRisk
 	OpSbom
+	OpLogon
 )
 
 const (
@@ -60,6 +61,7 @@ var opcodes = map[Opcode]string{
 	OpSpdx:  "上报节点 SPDX 清单",
 	OpRisk:  "上报节点风险数据",
 	OpSbom:  "上报自定义 sbom 信息",
+	OpLogon: "上报节点用户登录记录",
 
 	OpCPU:        "上报 CPU 信息",
 	OpDiskIO:     "上报磁盘 I/O",
