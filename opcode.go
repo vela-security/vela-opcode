@@ -12,6 +12,7 @@ const (
 	OpOffline
 	OpDeleted
 	OpUpgrade
+	OpTag
 )
 
 const (
@@ -55,6 +56,7 @@ var opcodes = map[Opcode]string{
 	OpOffline:   "节点下线",
 	OpDeleted:   "删除节点",
 	OpUpgrade:   "节点客户端升级",
+	OpTag:       "节点上报标签",
 
 	OpEvent: "上报事件",
 	OpTask:  "上报 rock-go 内部服务运行信息",
